@@ -1,0 +1,59 @@
+CONTROL STRUCTURES
+STARTED 07/19/2021
+COMPLETED
+--------------------------------------------
+Booleans
+Two Boolean values: true and false
+nil: the absence of a value
+If other objects are evaluated as Booleans, they are assigned either "truthy" or "falsey"
+ONLY nil AND false ARE "falsey"; ALL OTHER VALUES ARE "truthy"
+--------------------------------------------
+Comparison Operators
+a == b  [==] comparison operator: returns true if a and b are equal, false otherwise
+a != b  [!=] not equal operator: returns true if a and b are not equal, false otherwise
+a > b   [>] greater than operator: returns true if a is greater than b, false otherwise
+a < b   [<] less than operator: returns true if a is less than b, false otherwise
+a >= b  [>=] greater than or equal to: returns true if a is equal or greater than b, false otherwise
+a <= b  [<=] less than or equal to: returns true if a is equal or less than b, false otherwise
+--------------------------------------------
+if Statements
+In the below syntax, if the conditional is true, then the code runs. Otherwise, the code does not run.
+if conditional
+    code
+end
+It is possible to nest if statements. However, if one if statement is unfulfilled, the code block within that statement is not executed. Each if statement needs its own corresponding end line.
+--------------------------------------------
+else/elsif/unless Statements
+else can be added to the end of an if statement. If the condition fails to run, then the else block is evaluated.
+age = 20
+if age >= 18
+    puts "You can legally vote"
+else
+    puts "You are not old enough to vote"
+end
+
+elsif is short for "else if." This can help test for multiple conditions.
+age = 20
+if age >= 21
+    puts "You can vote and drink alcohol."
+elsif age >= 18
+    puts "You can only vote."
+else
+    puts "You are too young to vote or drink alcohol."
+end
+
+unless is the opposite of an if statement. If the condition fails, then the code runs.
+age = 20
+unless age < 18
+    puts "You can legally vote"
+end
+elsif and else can also be used with unless statements.
+--------------------------------------------
+Logical Operators
+Can test for more complex conditions
+&& AND  true if both are true, false otherwise
+|| OR   true if at least one is true, false otherwise
+!  NOT  reverses true and false; NOT true is false, and NOT false is true
+--------------------------------------------
+case Statements
+
