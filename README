@@ -30,6 +30,13 @@ Control Structures
 - for Loops
 
 Collections
+- Arrays
+- Array Manipulations
+- Hashes & Symbols
+- Nested Arrays & Hashes
+- Iterators
+- Letter Frequency Counter
+
 Methods
 Object Oriented Programming
 Modules, Mixins, Standard Classes
