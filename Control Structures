@@ -1,6 +1,6 @@
 CONTROL STRUCTURES
 STARTED 07/19/2021
-COMPLETED
+COMPLETED 07/19/2021
 --------------------------------------------
 Booleans
 Two Boolean values: true and false
@@ -56,4 +56,76 @@ Can test for more complex conditions
 !  NOT  reverses true and false; NOT true is false, and NOT false is true
 --------------------------------------------
 case Statements
+
+case Statements test for values in the when statements. Multiple when statements can be tested simutaneously with commas.
+
+An else statement can be added, which executes if no when statement is fulfilled.
+
+a = 2
+case a
+when 1,3,5,7,9
+    puts "Odd"
+when 2,4,6,8
+    puts "Even"
+else
+    puts "This is a big number"
+end
+--------------------------------------------
+while and until Loops
+
+Loops execute blocks repeatedly.
+A while loop will run as long as the condition is true. If the condition never becomes false, the program is in an infinite loop.
+
+while condition
+    execute this code
+end
+
+An until loop is the opposite of a while loop. It will run as long as the condition is false. If the condition never becomes true, the program is in an infinite loop.
+
+until condition
+    execute this code
+end
+--------------------------------------------
+Ranges
+A sequence of numbers or letters. Ruby has two forms of ranges:
+a..b is the inclusive range from a to b
+a...b is the range from a to b, where b is not included.
+
+.to_a method converts a range to an array.
+
+Ranges can be useful for when case values and for loops.
+--------------------------------------------
+for Loops
+Useful for looping over a set number of values or a range. It consists of an empty variable and a range. During each loop, the variable will assigned the corresponding value of the range.
+
+for var in range
+    code
+end
+
+break : stops the for loop from executing
+
+for i in 1..5
+    break if i > 3
+    print i
+end #prints 123
+
+next : skips one iteration of the loop
+
+for i in 1..5
+    next if i%2 = 0
+    print i
+end #prints 135
+
+redo : repeats the current iteration of the loop
+retry : start the entire loop again from the beginning
+
+loop do : allows code to execute until a break (if there is no break, it is an infinite loop)
+
+x = 0
+loop do
+	puts x
+	x += 1
+	break if x > 10
+end
+
 
