@@ -1,0 +1,86 @@
+BASIC CONCEPTS
+STARTED 07/19/2021
+COMPLETED 07/19/2021
+--------------------------------------------
+What is Ruby?
+Ruby is a dynamic, object-oriented, general-purpose programming language.
+It is ranked among the top 10 programming languages worldwide. Much of its growth is attributed to the popularity of software written in Ruby, particularly the Ruby on Rails web framework.
+
+Everything in Ruby is an object.
+--------------------------------------------
+Commands
+puts "text" #outputs with a newline character
+prints "text" #outputs without a newline character
+--------------------------------------------
+Commenting
+# This is a comment
+=begin
+    This is a multiline comment
+    Line 2
+    Line 3
+=end
+--------------------------------------------
+Variables
+Assign a variable using the = sign: thisYear = 2021
+Variables with a capital beginning letter are constants YourName = "Bob"
+Constants cannot be changed once assigned
+--------------------------------------------
+Data Types
+10       integer
+10.0     floating point value
+"Hello"  string
+--------------------------------------------
+String Literals #{var}
+age = 42
+puts = "He is #{age} years old"
+Can also be used for interpolation
+num1 = 1
+num2 = 2
+puts "The sum is #{num1 + num2}."
+--------------------------------------------
+Math Operations
++  addition
+-  subtraction
+*  multiplication
+/  division
+%  modulus
+** exponential
+() parenthesis
+Evaluating two integers with an operator always results in an integer.
+    5 / 2 = 2
+    For more precision, use floating point values to get a floating point result.
+    5.0 / 2 = 2.5
+--------------------------------------------
+Shorthand is supported
+Self-assignment
+    a += 1 is equivalent to a = a + 1
+
+Parallel assignment is also supported, the following are equivalent:
+    a, b, c = 1, 2, 3
+    a = 1
+    b = 2
+    c = 3
+--------------------------------------------
+Escaping characters
+\ Escapes the next character
+\n new line character
+--------------------------------------------
+Concatenation
+Combines two strings together. If I have strings a and b, I can join them with a+b.
+a = "Hello "
+b = "World"
+a + b = "Hello World"
+--------------------------------------------
+Repeating Strings
+Multiplying a string will repeat the string a set number of times.
+a = "La"
+a*3 = "LaLaLa"
+a*5 = "LaLaLaLaLa"
+--------------------------------------------
+Methods
+.to_s converts object to a string
+.to_i converts object to an integer
+--------------------------------------------
+Getting user input
+gets command: collects user input and returns it as a string with a newline character.
+gets.chomp: collects user input and returns it as a string without a newline character.
