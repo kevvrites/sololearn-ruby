@@ -1,4 +1,156 @@
 COLLECTIONS
-STARTED
-COMPLETED
+STARTED 07/20/2021
+COMPLETED 07/20/2021
 --------------------------------------------
+Arrays
+An array is a list of numbered items. Comma separated, square brackets.
+test_array = ["Item 1", "Item 2", "Item 3"]
+Each item has an index, starting at 0.
+test_array[0] = "Item 1"
+Overwrite assignments easily using the index. test_array[0] = "Item 0"
+A negative index started from the end of the array.
+test_array[-1] = "Item 3"
+
+Adding Elements
+A single array can have different types of elements (integer, string, float)
+Add an element using <<
+arr << something will add "something" to the end of the array
+
+Methods
+arr.push(something) will add something to the end of the array
+arr.insert(position, something) will add something to that index of the array
+
+arr = [1,3,4,5]
+arr.insert(1,2)
+print arr
+# returns [1,2,3,4,5]
+
+Removing Elements
+Methods
+arr.pop                 will remove the last value in the array
+arr.delete_at(index)    will remove the value at the index in the array
+
+print arr will print the actual array with brackets and commas
+puts arr will print the elements of the array on a newline without brackets or commas
+
+You can use a range in specifying an array index. arr[1..2]
+--------------------------------------------
+Array Manipulations
+
+Addition: add the elements of two arrays together with arr1 + arr2
+Subtraction: removes the elements that are present in the second array from the first array arr1 - arr2
+Duplicate arrays using * integer.
+
+& operator: results in the values that are present in both arrays with no duplicates
+| operator: joins two arrays and removes duplicate values
+
+Moving Elements
+arr.reverse: returns an array with the same elements in reverse order (does not change original array)
+arr.reverse!: reverses the array in place, changing the original array
+arr = [1,2,3]
+print arr.reverse   #[3,2,1]
+print arr           #[1,2,3]
+print arr.reverse!  #[3,2,1]
+print arr           #[3,2,1]
+
+Common Methods
+arr.length          returns number of elements in an array
+arr.size            returns number of elements in an array
+arr.sort            returns a new array with elements sorted
+arr.uniq            returns a new array with duplicate elements removed
+arr.uniq!           removes duplicate elements in place
+arr.freeze          prevents array from being modified
+arr.include?(obj)   returns true if obj is in the array, false otherwise
+arr.min             returns the element of lowest value
+arr.max             returns the element of greatest value
+arr.index(item)     returns the index number of the item in array
+Note: Most of these methods will also work for strings, which are like arrays of letters
+
+A for loop is a basic way to loop over all the elements in an array.
+--------------------------------------------
+Hashes & Symbols
+A hash is like an array, except the index can be anything. In an array, the index must be an integer. Other words for a hash is a dictionary, map, or associative array.
+Hashes use key-value pairs enclosed in curly braces {}.
+Hashes can use any object as an index, even an array.
+sample_hash = {"key" => value, "key2" => value2}
+sample_hash["key"] = value
+
+Symbols are similar to strings, but they are immutable. Created by using a colon and name.
+:symbol
+The two sample hashes below are equal.
+sample_hash2 = { :"Kevin"=>"BBQ",
+                 :"Kathy"=>"Ketchup",
+                 :"Joanne"=>"Sweet and Sour"
+}
+sample_hash2[:"Kevin"] = "BBQ"
+
+sample_hash3 = { "Kevin":"BBQ",
+                 "Kathy":"Ketchup",
+                 "Joanne":"Sweet and Sour"
+}
+sample_hash3[:"Kevin"] = "BBQ"
+
+Methods
+hash.delete(key)    removes the key-value pair from hash by key.
+hash.key(value)     returns the key for the given value in hash, nil if no matching value is found.
+hash.invert         creates a new hash, reversing keys and values from hash; that is, in the new hash, the keys from hash become values and values become keys.
+hash.keys           returns a new array with keys from hash. 
+hash.values         returns a new array containing all the values of hash.
+hash.length         returns the length of hash as an integer.
+--------------------------------------------
+Nested Arrays & Hashes
+Nested arrays are arrays that contain arrays.
+arr = [ [1,2,3] , [4,5,6] ]
+arr[1][2] = 6
+arr[outside index][inner index]
+
+Hashes can also be nested.
+Hashes and arrays with more than 3 dimensions can be difficult to manage.
+hash1 = { bmw: {color: black, year: 2010},
+          toyota: {color: red, year: 2019},
+          ford: {color: blue, year: 2015}}
+puts hash1[:bmw][:color] # returns black
+--------------------------------------------
+Iterators
+.each iterator is one of the most common
+x is the block parameter that takes the assigned value of each of the elements in the loop.
+
+With an array:
+arr.each do |x|
+    puts x
+end
+# Prints each value of the array in a new line.
+
+With a hash:
+sizes.each do |key, value|
+    puts "#{key}=>#{value}"
+end
+# Prints out each key-value pair of the hash in a new line.
+
+do and end specify code blocks in Ruby. Can be replaced with curly braces.
+sizes.each { |key, value| puts "#{key}=>#{value}" }
+
+With a number:
+10.times do
+    puts "Hi"
+end
+# Puts "Hi" 10 times.
+--------------------------------------------
+Letter Frequency Counter
+string.downcase! converts letters in string to lowercase
+
+freqs = {} #Create an empty hash
+freqs.default = 0
+.default sets the default value for a hash, so when a key is assigned with no value, the default value is used.
+
+.each_char iterates over a string
+
+# Solution Code
+text = "I am learning Ruby and it is fun!"
+text.downcase!
+freqs = {}
+freqs.default = 0
+
+text.each_char { |char| freqs[char] += 1}
+
+("a".."z").each {|x| puts "#{x} : #{freqs[x]}" }
