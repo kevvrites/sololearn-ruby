@@ -8,7 +8,7 @@ SoloLearn is a free online resource for software engineers who are looking to le
 ### Ruby
 Ruby is an interpreted, high-level, general-purpose programming language. It was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan. Ruby is dynamically typed and uses garbage collection and just-in-time compilation.
 
-Basic Concepts
+Basic Concepts (07/19/2021)
 - What is Ruby
 - Hello, Ruby!
 - Comments
@@ -18,7 +18,7 @@ Basic Concepts
 - Strings
 - Getting User Input
 
-Control Structures
+Control Structures (07/19/2021)
 - Booleans
 - Comparison Operators
 - if Statements
@@ -29,7 +29,7 @@ Control Structures
 - Ranges
 - for Loops
 
-Collections
+Collections (07/20/2021)
 - Arrays
 - Array Manipulations
 - Hashes & Symbols
@@ -38,6 +38,13 @@ Collections
 - Letter Frequency Counter
 
 Methods
+- Defining & Calling Methods
+- Method Parameters
+- Default and Optional Parameters
+- Return Values from Methods
+- Variable Scope
+- Recursion
+
 Object Oriented Programming
 Modules, Mixins, Standard Classes
 Working with Files
