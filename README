@@ -1,6 +1,6 @@
 # Sololearn Ruby
 By Kevin Liu \
-I am attempting to learn Ruby using the iPad version of Sololearn. I will be including course notes throughout this repository.
+I am attempting to learn Ruby using the iPad version of Sololearn. I will be including course notes throughout this repository. The date next to the section is the date of completion (MM/DD/YYYY).
 
 ### Sololearn
 SoloLearn is a free online resource for software engineers who are looking to learn a new programming language from scratch. They have tracks in 13 languages, including Python, HTML, CSS, SQL, and JavaScript.
@@ -37,7 +37,7 @@ Collections (07/20/2021)
 - Iterators
 - Letter Frequency Counter
 
-Methods
+Methods (07/21/2021)
 - Defining & Calling Methods
 - Method Parameters
 - Default and Optional Parameters
@@ -46,5 +46,17 @@ Methods
 - Recursion
 
 Object Oriented Programming
+- Classes & Objects
+- Instance Variables
+- Instance Methods and Accessors
+- Accessor Methods
+- Class Methods & Variables
+- The to_s Method
+- Inheritance
+- super
+- Operator Overloading
+- Access Modifiers
+- A Simple Game
+
 Modules, Mixins, Standard Classes
 Working with Files
