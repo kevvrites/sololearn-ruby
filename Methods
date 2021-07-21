@@ -1,15 +1,95 @@
 METHODS
-STARTED
-COMPLETED
+STARTED 07/21/2021
+COMPLETED 07/21/2021
 --------------------------------------------
 Defining & Calling Methods
+A method is a set of statements that perform a specific task.
+
+Creating a method:
+def method_name
+    code
+end
+
+method names should begin with a lowercase.
+Call a method by executing the name. The method must be called after its definition.
+Methods can be called within other methods.
 --------------------------------------------
 Method Parameters
+Methods can take inputs (parameters) to use within the method. Use multiple parameters by adding a comma between parameters.
+
+def method_name(parameter, multiple parameters)
+    code
+end
+
+The actual input is called an argument. Arguments can also be variables.
+
+def sum(x,y)
+    puts x+y
+end
+sum(1,2)
+
+Parameters: x, y
+Arguments: 1, 2
 --------------------------------------------
 Default and Optional Parameters
+A default value can be set for parameters so the method still runs without full inputs.
+
+def sum(x,y=8)
+    puts x+y
+end
+
+sum(2) # Will return 10, as the value of y is 8.
+Parenthesis around the arguments and parameters is optional.
+
+Optional parameters are preceded by an asterisk *.
+
+def sum(x, y, *p)
+    puts x+y+p
+end
+
+*p can take 0-infinite parameters; it is an optional parameter.
 --------------------------------------------
 Return Values from Methods
+Return a value from a method using command return.
+This value can then be assigned to a variable.
+
+def sum(x, y)
+    return x + y
+end
+
+add = sum(1, 2)
+# The value of 3 is stored in add.
+
+Return multiple values by adding commas in between the values.
+The return command will stop executing the method: any code after return is not executed.
+Ruby automatically returns the last line of the method, even if no return is specified.
+
+Methods can be chained together. If there is a nil or error, the entire chain will fail.
+
+def square(x)
+    return x**2
+end
+
+square(2).times {print "1"} #returns 1111
+When multiple values are returned, the result is an array.
+    return x+x, y+y, x+y #returns [x+x, y+y, x+y]
+Methods can be arguments for other methods.
 --------------------------------------------
 Variable Scope
+Scope is where variables are accessible from.
+
+Four scopes: global, local, instance, class
+
+Local:  only within the local area (e.g. within a method)
+        must start with a lowercase letter or underscore
+        variable names can repeat in different scopes
+Global: accessible everywhere in the program
+        must start with $
+        strongly discouraged due to bugs and easy mistakes
+
+Scope limits access, provides more variable flexibility, and makes code more predictable and secure.
 --------------------------------------------
 Recursion
+A concept where a method calls itself within the method, creating a loop.
+If the base case is not included, it can become an infinite loop.
+Resolves as a SystemStackError
