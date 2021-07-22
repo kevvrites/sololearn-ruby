@@ -1,16 +1,109 @@
 OBJECT ORIENTED PROGRAMMING
-STARTED
+STARTED 07/22/2021
 COMPLETED
 --------------------------------------------
 Classes & Objects
+Everything in Ruby is an object. Objects have their own identity.
+Use classes to create objects. It defines data and actions that associate with objects.
+
+Syntax:
+class classname
+    def initialize
+        puts "Hello"
+    end
+end
+
+Special initialize method is called when an object is created. Also known as the constructor in other languages.
+
+Create an object using the new method.
+var = classname.new # Creates a new object var with class classname.
+Objects are also called instances of a class. Creating instances is called instantiation.
 --------------------------------------------
 Instance Variables
+Instance variable is a type of variable defined in a class.
+    Preceded by at sign (@)
+    Objects can be initialized with arguments that fill these instance variables.
+    The scope is the entire object, accessible inside all the methods for the object.
+    Can have multiple instance variables.
 --------------------------------------------
 Instance Methods and Accessors
+Defining a method within a class creates an instance method. This method can be used by objects of the same class.
+Instance methods can be used to access instance variables outside the object.
+
+class Person
+    def initialize(name)
+        @name = name
+    end
+    def get_name
+        @name
+    end
+end
+
+Getter and setter methods called accessors. Retrieve the value of a variable is called a getter. Modify the variable value is called a setter.
+
+Setter method has special syntax in Ruby: method name followed by an equal sign.
+def set_name=(name)
+    @name = name
+end
+p.name = "Bob"
+
+Typical to name the getter and setter methods using the same name as the instance variable. (Instead of get_name and set_name, they are just both called name)
 --------------------------------------------
 Accessor Methods
+Ruby can automate creating getter and setter methods using the attr_accessor method
+It takes the symbol of the instance variable name as an argument
+
+class Person
+    attr_attribute :name #, :height, :weight, etc.
+    def initialize(name)
+        @name = name
+    end
+end
+
+p = Person.new("David")
+p.name = "Bob"
+puts p.name
+
+If only a getter or setter method is needed, there is attr_reader and attr_writer.
+The attr_* method can take multiple symbols.
+
+The accessor methods can also be called inside the class by using the self keyword
+class Person
+    attr_accessor :name, :age
+    def initialize(name, age)
+        @name = name
+        @age = age
+    end
+    def change(n, a)
+        self.name = n # Setter
+        self.age = a  # Setter
+    end
+    def show_info
+        puts "#{self.name} is #{self.age}" # Getter
+    end
+end
+
+self is used for clarity. If there is a variable and a method called name, self.name is always referring to the method.
 --------------------------------------------
 Class Methods & Variables
+Class methods are methods called directly on the class, without objects.
+Class methods are defined using the self keyword.
+
+class Person
+    def self.info
+        puts "A Person"
+    end
+end
+
+Person.info # outputs "A Person"
+
+A class variable is accessible to every object of a class. It belongs to the class, not the objects.
+Class variable declared using two @ signs. @@varname
+Typically used when you need information about the class, not individual objects.
+Initialize called for every object created, so class variable could be a counter for objects.
+
+Constants are typically uppercase letters.
+Access class constants using the class name and :: and the constant name. Math::PI will call the constant "PI" from the class "Math"
 --------------------------------------------
 The to_s Method
 --------------------------------------------
