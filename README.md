@@ -59,4 +59,11 @@ Object Oriented Programming
 - A Simple Game
 
 Modules, Mixins, Standard Classes
+- Modules and Mixins
+- Namescaping
+- structs
+- Math and Time
+- Procs
+- Lambdas
+
 Working with Files
