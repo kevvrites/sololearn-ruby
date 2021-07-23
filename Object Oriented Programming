@@ -1,6 +1,6 @@
 OBJECT ORIENTED PROGRAMMING
 STARTED 07/22/2021
-COMPLETED
+COMPLETED 07/23/2021
 --------------------------------------------
 Classes & Objects
 Everything in Ruby is an object. Objects have their own identity.
@@ -106,13 +106,136 @@ Constants are typically uppercase letters.
 Access class constants using the class name and :: and the constant name. Math::PI will call the constant "PI" from the class "Math"
 --------------------------------------------
 The to_s Method
+Comes built-in with all classes, called when the object is output.
+class Person
+    #some code
+end
+p = Person.new
+puts p
+Outputs #<Person:0x0000559d28107050>
+puts p is equal to puts p.to_s
+By default, the to_s method prints the object class and encoding of device ID.
+
+Can define the to_s method to customize the imjplementation
+def to_s
+    "#{@name} is #{@age} years old."
+end
+# When puts is called, it will be formatted like above.
 --------------------------------------------
 Inheritance
+Inheritance is when a class receives attributes or behavior from another class.
+Inheriting class: subclass or derivced class.
+Class it inherits from: superclass or base class.
+
+< symbol used to inherit a class from another class
+class Dog < Animal
+end
+
+Subclass can use all the methods and attributes.
+
+There can be multiple layers of inheritance.
+Ruby does not support multiple inheritance (cannot inherit a class simutaneously from multiple classes).
 --------------------------------------------
 super
+Built-in method called super, used to call methods from the superclass.
+When super is called, the method of the same name is called.
+
+class Animal
+    def speak
+        puts "Hi"
+    end
+end
+
+class Cat < Animal
+    def speak
+        super
+        puts "Meow"
+    end
+end
+
+c = Cat.new
+c.speak #Outputs "Hi" and "Meow"
+
+Super is most commonly used in the initialize method. It can be used to avoid repeating initializing common variables (e.g. super(name)) or complex functions.
 --------------------------------------------
 Operator Overloading
+Operators can be overloaded so that some operations can be performed like adding two objects together.
+
+def +(other)
+    Shape.new(self.h + other.h, self.w + other.w)
+end
+
+a = Shape.new(7, 4)
+b = Shape.new(9, 18)
+c = a + b
+puts c.h # Outputs 16
+puts c.w # Outputs 22
+
+Useful for customizing operators to perform some task.
 --------------------------------------------
 Access Modifiers
+Ruby has public, private, and protected access modifiers.
+Class methods are default public, which are available outside the class.
+Anything below the private keyword is private. These modifiers are only for methods; instance variables are always private.
+
+class Person
+	def initialize(age)
+		@age = age
+	end
+	def show
+		puts "#{@age} years = #{days_lived} days"
+	end
+
+	private
+	def days_lived
+		@age * 365
+	end
+end
+
+p = Person.new(42)
+p.show
+
+Protected is similar to private, but they allow the method to be called by a object of the same class or subclass.
 --------------------------------------------
 A Simple Game
+
+Create a game where two players fight to the death.
+
+class Person
+    attr_accessor :name, :health, :power
+    def initialize(n, h, pow)
+        @name = n
+        @health = h
+        @power = pow
+    end
+    def isAlive
+        @health > 0
+    end
+    def hit(opponent)
+        opponent.health -= self.power
+    end
+    def to_s
+        "#{name}: Health: #{health}, Power #{power}"
+    end
+end
+
+def fight(p1, p2)
+    while p1.isAlive && p2.isAlive
+        p1.hit(p2)
+        p2.hit(p1)
+        show_info(p1, p2)
+    end
+    if p1.isAlive
+        puts "#{p1.name} WON!"
+    elsif p2.isAlive
+        puts "#{p2.name} WON!"
+    else
+        puts "TIE!"
+    end
+end
+
+def show_info(*p)
+    p.each{|x| puts x}
+end
+
+rand(#) randomizes between 0-# (not inclusive)
