@@ -58,7 +58,7 @@ Object Oriented Programming (07/23/2021)
 - Access Modifiers
 - A Simple Game
 
-Modules, Mixins, Standard Classes
+Modules, Mixins, Standard Classes (07/24/2021)
 - Modules and Mixins
 - Namescaping
 - structs
@@ -67,3 +67,7 @@ Modules, Mixins, Standard Classes
 - Lambdas
 
 Working with Files
+- Creating and Opening Files
+- Reading and Writing Files
+- Deleting Files
+- Getting File Info
