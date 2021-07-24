@@ -1,15 +1,177 @@
 MODULES, MIXINS, STANDARD CLASSES
-STARTED
-COMPLETED
+STARTED 07/23/2021
+COMPLETED 07/24/2021
 --------------------------------------------
 Modules and Mixins
+Modules are another way to group methods (other than class).
+Utilized to group common related commands that can be used across multiple classes.
+
+module modulename
+    def methodname
+        # code
+    end
+end
+
+Convention for Ruby is to include "able" in the name.
+Some classes have the same superclass, but need specific traits.
+Command "include modulename" within the class definition allows this customization.
+Include is also called mix.
+
+module Flyable
+    def fly
+        # flying code
+    end
+end
+
+class Plane
+    include Flyable
+end
+
+jet = Plane.new
+jet.fly
+
+Classes can mix in multiple modules.
+
+If the relationship is a "is a" relationship, then it should be class inheritance.
+If the relationship is a "has a" relationship, then it should be modules.
+
+Ruby has some pre-defined mixins ready for use.
+Comparable mixin allows custom comparison of objects using the operator <=>.
+
+class Cat
+    attr_accessor :name, :age
+    include Comparable
+    def initialize(n, a)
+        self.name = n
+        self.age = a
+    end
+    def <=> (other)
+        self.age <=> other.age
+    end
+end
+
+c1 = Cat.new("Lucy", 3)
+c2 = Cat.new("Penny", 7)
+puts c1 < c2 # Outputs true
 --------------------------------------------
 Namescaping
+Organizing similar classes in a module.
+
+module Animal
+    class Dog
+    end
+    class Cat
+    end
+
+Call classes within module using double colon ::.
+c1 = Animal::Cat.new
+d1 = Animal::Dog.new
+
+Methods inside a module are class methods, accessible with dot format.
+module MyMath
+    PI = 3.14
+    def self.square(x)
+        x*x
+    end
 --------------------------------------------
 structs
+Sometimes a fully structured class is not necessary: use struct
+struct automatically initializes the accessors
+Example of use: group of attributes bundled together, like defining points in a 2-d space using x and y coordinates
+
+Point = Struct.new(:x,:y)
+# Point is the class name
+# origin = Point.new(0,0)
+Struct is a built0in Ruby class
+
+OpenStruct or OStruct is similar, except it does not have a defined list of attributes
+Need to include the corresponding library using require
+
+require "ostruct"
+person = OpenStruct.new
+person.name = "John"
+person.age = 42
+
+Can define any number of attributes flexibly.
+OStruct is slower, but more flexible.
+
+Shorten above code by using a hash.
+require "ostruct"
+person = OpenStruct.new(name:"John", age:42)
+
+Struct/OStruct provide a simple way to create data structures with the behavior of a class
 --------------------------------------------
 Math and Time
+Ruby provides built-in classes, including the Math class
+Math.sqrt(9)
+Math::PI #calling a constant
+Math::cos(0)
+
+Time class represents dates and times in Ruby
+Time.now    # current time
+t.inspect   # Displays the raw version of the object
+t.year      # current year
+t.month     # current month
+t.day       # current day
+Time.new(year, month, date)
+t.wday      # day of the week, 0 is Sunday
+t.yday      # day of the year
 --------------------------------------------
 Procs
+Provides the ability to wrap a block of code in an object and store it in an object
+greet = Proc.new {|x| puts "Welcome #{x}"}
+
+Created a proc that takes a parameter x, outputs the greeting, and assigned it to the greet variable.
+Run the proc using the .call method.
+greet.call "Kevin" # Outputs Welcome Kevin
+
+Procs are similar to methods
+Procs are powerful and unique because you can pass them into methods (procs are objects)
+Can pass as many procs to methods as we want
+It allows us to reuse code blocks easily
+
+greet = Proc.new { |x| puts "Welcome #{x}" }
+goodbye = Proc.new { |x| puts "Goodbye #{x}" }
+def say (arr, proc)
+    arr.each { |x| proc.call x }
+end
+
+people = ["Bob", "John", "Ashley"]
+say(people, greet)
+say(people, goodbye)
+
+Create a program that counts the execution time of a block of code.
+def calc(proc)
+    start = Time.now
+    proc.call
+    dur = Time.now - start
+end
+
+someProc = Proc.new do
+    num = 0 
+    1000000.times do
+        num = num + 1
+    end
+end
+
+puts calc(someProc)
 --------------------------------------------
 Lambdas
+Lambdas are a variation of Procs: it is an instance of the Proc class
+talk = lambda {puts "Hi"}
+talk = ->() {puts "Hi"} #alternative syntax
+talk.call
+
+Lambda is known as an anonymous function in other languages.
+
+Differences between Lambdas and Procs is how arguments are handled.
+Lambdas check the number of arguments
+
+If a lambda receives an incorrect number of arguments, an error occurs. A proc will default the value to nil.
+
+Another difference is how return statements are handled. Lambdas returns execution to the method. When a Proc has a return statement, it jumps out of itself as well as the enclosing method.
+
+Example:
+if a return statement is inside a proc, it returns the line and ends the Proc method.
+if a return statement is inside a lambda, it continues to evaluate the rest of the lambda method and outputs the last line by default or other specified line.
+
