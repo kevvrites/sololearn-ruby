@@ -1,0 +1,62 @@
+WORKING WITH FILES
+STARTED 07/25/2021
+COMPLETED 07/25/2021
+--------------------------------------------
+Creating and Opening Files
+A more permanent form of input/output is files. Built in file class.
+
+file = File.new("filename.txt", "w+")
+
+This creates a file named filename.txt with the mode w+ (read and write access).
+The file will be created in the same directory as the program.
+After using a file, it has to be closed using the close method: file.close
+If a file is not closed, it will continue to use memory.
+
+File modes
+r   read-only, starts at beginning of file (default)
+r+  read-write, starts at beginning of file.
+w   write-only, truncates existing file to zero length or creates a new file for writing
+w+  read-write, truncates existing file to zero length overwriting existing data or creates a new file for reading and writing
+a   write-only, appends to end of file if file exists, otherwise creates a new file for writing
+a+  read-write, appends or reads from end of file if file exists, otherwise creates a new file for reading and writing
+
+The mode cannot be changed between read or write when the file is open.
+
+Open an existing file by using the file class open method.
+
+file = File.open("filename", "w+")
+--------------------------------------------
+Reading and Writing Files
+The puts and write methods can write content to a file. Puts adds a line break to the end of strings, while write does not.
+
+Use a block of code to write to an existing file. With this code Ruby will automatically close the file. The file is closed at the end of the block.
+File.open("file.txt", "w+") {
+    |file| file.puts("some text")
+}
+
+To read the entire contents of a file the File.read method can be used.
+To read the file contents line-by-line use the readlines method.
+
+File.readlines("filename.txt").each {
+    |line| puts " --- #{line}"
+}
+
+The readlines method reads the entire file based on individual lines and returns the lines in an array.
+--------------------------------------------
+Deleting Files
+Delete a file using the File.delete method.
+NOTE: THIS DELETES THE FILE PERMANENTLY
+Delete a file after closing it.
+
+It is important to check if the file exists to prevent errors. The file? method provides an easy way of checking if the file exists.
+
+File.open("text.txt") if File.file?("test.txt")
+File.file? returns true if the file exists, and false if it does not.
+--------------------------------------------
+Getting File Info
+Ruby has methods to get file information.
+size method returns the size of a file
+zero? method returns true if the named file exists and has a zero size (is empty)
+readable? method checks whether the file is readable
+writable? method checks whether the file is writable
+executable? method checks whether the file is writable

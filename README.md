@@ -66,7 +66,7 @@ Modules, Mixins, Standard Classes (07/24/2021)
 - Procs
 - Lambdas
 
-Working with Files
+Working with Files (07/25/2021)
 - Creating and Opening Files
 - Reading and Writing Files
 - Deleting Files
